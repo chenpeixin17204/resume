@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历 - Chen Peixin</title>
+    <title>个人简历 - 陈培鑫</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -19,11 +19,7 @@
             --transition: 0.2s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -33,29 +29,24 @@
             min-height: 100vh;
         }
 
-        /* 背景装饰 */
         body::before {
             content: '';
             position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(ellipse at 20% 0%, rgba(37,99,235,0.04) 0%, transparent 50%),
                         radial-gradient(ellipse at 80% 100%, rgba(37,99,235,0.04) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            pointer-events: none; z-index: 0;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
         }
 
-        /* ===== 头部 ===== */
+        /* 头部 */
         .header {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -68,64 +59,28 @@
             border: 1px solid var(--border);
             transition: transform var(--transition), box-shadow var(--transition);
         }
-
-        .header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
+        .header:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
 
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 110px; height: 110px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), #6366f1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            color: white;
-            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 42px; color: white; font-weight: 700;
             flex-shrink: 0;
             box-shadow: 0 4px 12px rgba(37,99,235,0.3);
         }
 
-        .header-info h1 {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .header-info .subtitle {
-            font-size: 16px;
-            color: var(--primary);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
+        .header-info h1 { font-size: 32px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .header-info .subtitle { font-size: 16px; color: var(--primary); font-weight: 500; margin-bottom: 12px; }
         .header-info .contact-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            font-size: 14px;
-            color: var(--text-secondary);
+            display: flex; flex-wrap: wrap; gap: 16px;
+            font-size: 14px; color: var(--text-secondary);
         }
+        .contact-item { display: flex; align-items: center; gap: 6px; }
+        .contact-item .icon { width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .contact-item .icon {
-            width: 18px;
-            height: 18px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ===== 板块 ===== */
+        /* 板块 */
         .section {
             background: var(--card-bg);
             border-radius: var(--radius);
@@ -135,207 +90,102 @@
             border: 1px solid var(--border);
             transition: transform var(--transition), box-shadow var(--transition);
         }
-
-        .section:hover {
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
+        .section:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
 
         .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 20px;
-            padding-bottom: 12px;
+            font-size: 20px; font-weight: 700; color: var(--text);
+            margin-bottom: 20px; padding-bottom: 12px;
             border-bottom: 2px solid var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: flex; align-items: center; gap: 10px;
         }
-
         .section-title .icon-block {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 32px; height: 32px; border-radius: 8px;
             background: rgba(37,99,235,0.1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-flex; align-items: center; justify-content: center;
             font-size: 16px;
         }
 
-        /* ===== 技能标签 ===== */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        /* 求职意向卡片 */
+        .intent-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
         }
+        .intent-item {
+            background: var(--bg); border-radius: 8px; padding: 12px 16px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .intent-item .label { font-size: 13px; color: var(--text-secondary); }
+        .intent-item .value { font-size: 14px; font-weight: 600; color: var(--text); }
 
+        /* 技能标签 */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(37,99,235,0.06);
-            color: var(--primary);
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 500;
+            display: inline-block; padding: 6px 16px;
+            background: rgba(37,99,235,0.06); color: var(--primary);
+            border-radius: 20px; font-size: 14px; font-weight: 500;
             border: 1px solid rgba(37,99,235,0.15);
-            transition: all var(--transition);
-            cursor: default;
+            transition: all var(--transition); cursor: default;
         }
-
         .skill-tag:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37,99,235,0.25);
+            background: var(--primary); color: white;
+            transform: translateY(-2px); box-shadow: 0 4px 8px rgba(37,99,235,0.25);
         }
 
-        /* ===== 时间线项目 ===== */
+        /* 时间线 */
         .timeline-item {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 24px;
-            border-left: 2px solid var(--border);
-            padding-bottom: 4px;
+            position: relative; padding-left: 24px; margin-bottom: 24px;
+            border-left: 2px solid var(--border); padding-bottom: 4px;
         }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-            border-left-color: transparent;
-        }
-
+        .timeline-item:last-child { margin-bottom: 0; border-left-color: transparent; }
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
+            content: ''; position: absolute; left: -6px; top: 6px;
+            width: 10px; height: 10px; border-radius: 50%;
             background: var(--primary);
             box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
         }
-
         .timeline-item .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 6px;
+            display: flex; justify-content: space-between; align-items: baseline;
+            flex-wrap: wrap; margin-bottom: 6px;
         }
-
-        .timeline-item .item-title {
-            font-weight: 600;
-            font-size: 16px;
-            color: var(--text);
-        }
-
-        .timeline-item .item-sub {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
+        .timeline-item .item-title { font-weight: 600; font-size: 16px; color: var(--text); }
+        .timeline-item .item-sub { font-size: 14px; color: var(--text-secondary); }
         .timeline-item .item-date {
-            font-size: 13px;
-            color: var(--text-secondary);
-            background: var(--bg);
-            padding: 2px 10px;
-            border-radius: 12px;
-            white-space: nowrap;
+            font-size: 13px; color: var(--text-secondary);
+            background: var(--bg); padding: 2px 10px; border-radius: 12px; white-space: nowrap;
         }
+        .timeline-item .item-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+        .timeline-item .item-desc ul { list-style: none; padding: 0; }
+        .timeline-item .item-desc ul li { padding: 3px 0; }
+        .timeline-item .item-desc ul li::before { content: "▸ "; color: var(--primary); font-size: 12px; }
 
-        .timeline-item .item-desc {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
+        /* 页脚 */
+        .footer { text-align: center; padding: 32px 20px; color: var(--text-secondary); font-size: 13px; }
+        .footer a { color: var(--primary); text-decoration: none; }
 
-        .timeline-item .item-desc ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .timeline-item .item-desc ul li {
-            padding: 3px 0;
-        }
-
-        .timeline-item .item-desc ul li::before {
-            content: "▸ ";
-            color: var(--primary);
-            font-size: 12px;
-        }
-
-        /* ===== 页脚 ===== */
-        .footer {
-            text-align: center;
-            padding: 32px 20px;
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-
-        .footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        /* ===== 打印样式优化按钮 ===== */
+        /* 打印按钮 */
         .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 20px;
-            box-shadow: 0 4px 12px rgba(37,99,235,0.4);
-            transition: all var(--transition);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--primary); color: white; border: none; cursor: pointer;
+            font-size: 20px; box-shadow: 0 4px 12px rgba(37,99,235,0.4);
+            transition: all var(--transition); z-index: 100;
+            display: flex; align-items: center; justify-content: center;
         }
-
         .print-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
+            background: var(--primary-dark); transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(37,99,235,0.5);
         }
 
-        /* ===== 响应式 ===== */
+        /* 响应式 */
         @media (max-width: 640px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                padding: 28px 20px;
-            }
-
-            .header-info .contact-row {
-                justify-content: center;
-            }
-
-            .section {
-                padding: 20px;
-            }
-
-            .container {
-                padding: 20px 12px;
-            }
-
-            .timeline-item .item-header {
-                flex-direction: column;
-            }
-
-            .header-info h1 {
-                font-size: 26px;
-            }
+            .header { flex-direction: column; text-align: center; padding: 28px 20px; }
+            .header-info .contact-row { justify-content: center; }
+            .section { padding: 20px; }
+            .container { padding: 20px 12px; }
+            .timeline-item .item-header { flex-direction: column; }
+            .header-info h1 { font-size: 26px; }
         }
 
-        /* ===== 打印样式 ===== */
         @media print {
             body::before { display: none; }
             .print-btn { display: none; }
@@ -346,61 +196,50 @@
     </style>
 </head>
 <body>
-
     <div class="container">
 
-        <!-- ===== 头部个人信息 ===== -->
+        <!-- ===== 头部 ===== -->
         <header class="header">
             <div class="avatar">陈</div>
             <div class="header-info">
-                <h1>Chen Peixin</h1>
-                <div class="subtitle">全栈开发工程师 / 计算机科学与技术专业</div>
+                <h1>陈培鑫</h1>
+                <div class="subtitle">软件开发工程师（Java 后端方向） / 软件工程专业</div>
                 <div class="contact-row">
-                    <span class="contact-item">
-                        <span class="icon">📧</span> 3980712025@qq.com
-                    </span>
-                    <span class="contact-item">
-                        <span class="icon">📱</span> 138-0000-0000
-                    </span>
-                    <span class="contact-item">
-                        <span class="icon">🌐</span> github.com/chenpeixin17204
-                    </span>
-                    <span class="contact-item">
-                        <span class="icon">📍</span> 北京市海淀区
-                    </span>
+                    <span class="contact-item"><span class="icon">📧</span> 3980712025@qq.com</span>
+                    <span class="contact-item"><span class="icon">📱</span> 19865995284</span>
+                    <span class="contact-item"><span class="icon">🎓</span> 广州华商学院 · 本科</span>
+                    <span class="contact-item"><span class="icon">📍</span> 广州市天河区</span>
                 </div>
             </div>
         </header>
 
-        <!-- ===== 个人简介 ===== -->
+        <!-- ===== 求职意向 ===== -->
         <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">👤</span> 个人简介
-            </h2>
-            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.8;">
-                计算机科学与技术专业本科毕业生，拥有扎实的编程基础和丰富的项目开发经验。
-                熟练掌握前端与后端多种技术栈，具备独立开发和团队协作能力。
-                对技术充满热情，持续学习新技术，追求编写高质量、可维护的代码。
-                在校期间参与多个实际项目开发，具备良好的沟通能力和问题解决能力。
-            </p>
+            <h2 class="section-title"><span class="icon-block">🎯</span> 求职意向</h2>
+            <div class="intent-grid">
+                <div class="intent-item"><span class="label">意向岗位</span><span class="value">Java 后端开发</span></div>
+                <div class="intent-item"><span class="label">意向城市</span><span class="value">广州 / 深圳</span></div>
+                <div class="intent-item"><span class="label">期望薪资</span><span class="value">8K - 10K / 月</span></div>
+                <div class="intent-item"><span class="label">求职类型</span><span class="value">校招</span></div>
+                <div class="intent-item"><span class="label">毕业时间</span><span class="value">2027.06</span></div>
+                <div class="intent-item"><span class="label">政治面貌</span><span class="value">共青团员</span></div>
+            </div>
         </section>
 
         <!-- ===== 教育背景 ===== -->
         <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">🎓</span> 教育背景
-            </h2>
+            <h2 class="section-title"><span class="icon-block">🎓</span> 教育背景</h2>
             <div class="timeline-item">
                 <div class="item-header">
-                    <span class="item-title">某科技大学</span>
-                    <span class="item-date">2020.09 - 2024.06</span>
+                    <span class="item-title">广州华商学院</span>
+                    <span class="item-date">2023.09 - 2027.06</span>
                 </div>
-                <div class="item-sub">计算机科学与技术 · 本科</div>
+                <div class="item-sub">软件工程 · 本科</div>
                 <div class="item-desc" style="margin-top: 6px;">
                     <ul>
-                        <li>GPA：3.8 / 4.0，专业排名前 10%</li>
-                        <li>主修课程：数据结构、算法设计、操作系统、计算机网络、数据库原理、软件工程</li>
-                        <li>获得校级优秀学生奖学金、全国大学生程序设计竞赛省级二等奖</li>
+                        <li>GPA：3.7 / 4.0，专业排名前 12%</li>
+                        <li>曾获得 2022-2023 学年校级二等奖学金</li>
+                        <li>主修课程：Java 语言程序设计、数据结构与算法、数据库系统原理、操作系统、软件工程、计算机网络、计算机组成原理、Python 程序设计等</li>
                     </ul>
                 </div>
             </div>
@@ -408,145 +247,102 @@
 
         <!-- ===== 技能特长 ===== -->
         <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">🛠️</span> 技能特长
-            </h2>
-
-            <h4 style="margin-bottom: 10px; color: var(--text);">前端开发</h4>
-            <div class="skills-grid" style="margin-bottom: 18px;">
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript (ES6+)</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Vue.js</span>
-                <span class="skill-tag">Tailwind CSS</span>
-                <span class="skill-tag">Next.js</span>
-            </div>
+            <h2 class="section-title"><span class="icon-block">🛠️</span> 技能特长</h2>
 
             <h4 style="margin-bottom: 10px; color: var(--text);">后端开发</h4>
             <div class="skills-grid" style="margin-bottom: 18px;">
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">Python</span>
                 <span class="skill-tag">Java</span>
                 <span class="skill-tag">Spring Boot</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">MongoDB</span>
-                <span class="skill-tag">Redis</span>
-                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Spring MVC</span>
+                <span class="skill-tag">MyBatis</span>
+                <span class="skill-tag">Maven</span>
+                <span class="skill-tag">RabbitMQ</span>
+                <span class="skill-tag">设计模式</span>
+                <span class="skill-tag">面向对象编程</span>
             </div>
 
-            <h4 style="margin-bottom: 10px; color: var(--text);">工具与其它</h4>
+            <h4 style="margin-bottom: 10px; color: var(--text);">数据库 & 缓存</h4>
+            <div class="skills-grid" style="margin-bottom: 18px;">
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">SQL 优化</span>
+            </div>
+
+            <h4 style="margin-bottom: 10px; color: var(--text);">编程语言 & 基础</h4>
+            <div class="skills-grid" style="margin-bottom: 18px;">
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">数据结构与算法</span>
+            </div>
+
+            <h4 style="margin-bottom: 10px; color: var(--text);">前端 & 工具</h4>
             <div class="skills-grid">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">JavaScript</span>
                 <span class="skill-tag">Git</span>
                 <span class="skill-tag">Linux</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">RESTful API</span>
-                <span class="skill-tag">Nginx</span>
-                <span class="skill-tag">Figma</span>
-                <span class="skill-tag">Agile / Scrum</span>
-            </div>
-        </section>
-
-        <!-- ===== 项目经验 ===== -->
-        <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">💼</span> 项目经验
-            </h2>
-
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">在线教育平台</span>
-                    <span class="item-date">2023.09 - 2024.01</span>
-                </div>
-                <div class="item-sub">全栈开发 · React + Node.js + MongoDB</div>
-                <div class="item-desc" style="margin-top: 6px;">
-                    <ul>
-                        <li>独立完成前端界面设计与开发，使用 React + TypeScript 实现响应式布局</li>
-                        <li>设计并实现 RESTful API，支持用户认证、课程管理、在线支付等功能</li>
-                        <li>使用 MongoDB 进行数据存储，优化查询性能，响应时间降低 40%</li>
-                        <li>部署至云服务器，使用 Nginx 反向代理 + Docker 容器化部署</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">校园二手交易小程序</span>
-                    <span class="item-date">2023.03 - 2023.07</span>
-                </div>
-                <div class="item-sub">前端开发 · Vue.js + uni-app</div>
-                <div class="item-desc" style="margin-top: 6px;">
-                    <ul>
-                        <li>基于 uni-app 开发跨平台应用，同时支持微信小程序和 H5</li>
-                        <li>实现商品发布、搜索、即时通讯、订单管理等核心功能</li>
-                        <li>接入微信支付和地图定位 API，使用 WebSocket 实现实时聊天</li>
-                        <li>上线后累计用户 2000+，日均活跃用户 300+</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="item-header">
-                    <span class="item-title">智能图书管理系统</span>
-                    <span class="item-date">2022.10 - 2023.01</span>
-                </div>
-                <div class="item-sub">后端开发 · Java + Spring Boot + MySQL</div>
-                <div class="item-desc" style="margin-top: 6px;">
-                    <ul>
-                        <li>设计数据库表结构，实现图书借阅、归还、预约等核心业务逻辑</li>
-                        <li>使用 Spring Security + JWT 实现用户认证与权限管理</li>
-                        <li>集成 Redis 缓存热点数据，系统并发处理能力提升 3 倍</li>
-                        <li>编写单元测试与集成测试，代码覆盖率达到 85%</li>
-                    </ul>
-                </div>
             </div>
         </section>
 
         <!-- ===== 实习经历 ===== -->
         <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">🏢</span> 实习经历
-            </h2>
+            <h2 class="section-title"><span class="icon-block">🏢</span> 实习经历</h2>
             <div class="timeline-item">
                 <div class="item-header">
-                    <span class="item-title">某科技有限公司</span>
-                    <span class="item-date">2023.06 - 2023.09</span>
+                    <span class="item-title">广州鲜享网络科技有限公司</span>
+                    <span class="item-date">2023.07 - 2023.09</span>
                 </div>
-                <div class="item-sub">前端开发实习生</div>
+                <div class="item-sub">软件开发实习生</div>
                 <div class="item-desc" style="margin-top: 6px;">
                     <ul>
-                        <li>参与公司核心产品的前端开发，负责用户仪表盘模块的迭代与优化</li>
-                        <li>使用 React + TypeScript 重构遗留代码，组件复用率提升 60%</li>
-                        <li>与后端团队协作完成 API 对接，参与 Code Review 和敏捷开发流程</li>
+                        <li>负责商品浏览、购物车及订单管理等核心功能模块的后端开发，使用 Java 与 Spring Boot 框架实现业务逻辑，完成 <strong>12 个接口</strong>的开发与联调</li>
+                        <li>参与数据库设计与优化，编写高效 SQL 语句，并利用 Redis 缓存热点商品数据，将商品列表查询效率提升约 <strong>40%</strong></li>
+                        <li>通过集成 RabbitMQ 消息队列，将订单通知、日志记录等任务异步化，系统峰值吞吐量提升 <strong>35%</strong></li>
+                        <li>使用 Git 进行团队协作与代码版本控制，参与 3 轮代码审查，修复 8 个功能缺陷</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- ===== 证书与荣誉 ===== -->
+        <!-- ===== 项目经历 ===== -->
         <section class="section">
-            <h2 class="section-title">
-                <span class="icon-block">🏆</span> 证书与荣誉
-            </h2>
-            <div class="skills-grid">
-                <span class="skill-tag">🏅 CET-6 英语六级</span>
-                <span class="skill-tag">📜 软件设计师（中级）</span>
-                <span class="skill-tag">🥈 程序设计竞赛省二等奖</span>
-                <span class="skill-tag">🎖️ 校级优秀学生奖学金</span>
-                <span class="skill-tag">📋 PMP 项目管理认证</span>
+            <h2 class="section-title"><span class="icon-block">💼</span> 项目经历</h2>
+            <div class="timeline-item">
+                <div class="item-header">
+                    <span class="item-title">社区生鲜即时配送平台</span>
+                    <span class="item-date">2025.03 - 2025.06</span>
+                </div>
+                <div class="item-sub">Java 后端开发（独立负责人）</div>
+                <div class="item-desc" style="margin-top: 6px;">
+                    <ul>
+                        <li>技术栈：<strong>Spring Boot + MyBatis + MySQL + Redis + RabbitMQ</strong>，B2C 生鲜电商平台，覆盖用户端与后台管理系统全链路功能</li>
+                        <li>设计并实现 Redis 缓存策略，缓存商品信息与用户会话，关键交易接口响应时间减少约 <strong>30%</strong></li>
+                        <li>引入 RabbitMQ 将下单后的短信通知、库存同步等次要流程异步处理，系统抗峰值能力提升 <strong>40%</strong></li>
+                        <li>基于 Spring AOP 统一抽取用户操作日志功能，减少重复代码量 <strong>20%</strong>；在关键接口使用令牌桶算法限流，防范恶意刷接口请求</li>
+                        <li>在库存扣减场景中应用数据库乐观锁，有效解决高并发下的"超卖"问题，上线后未出现库存数据不一致的故障</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- ===== 页脚 ===== -->
+        <!-- ===== 自我评价 ===== -->
+        <section class="section">
+            <h2 class="section-title"><span class="icon-block">✨</span> 自我评价</h2>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.8;">
+                具备扎实的软件工程理论基础和良好的逻辑分析能力，能独立分析与解决开发中的常见问题。
+                学习与适应能力强，能快速融入团队并承担开发任务，乐于探索和实践新技术。
+                拥有良好的编程习惯和团队协作精神，对软件开发充满热情，能通过持续学习不断提升技术水平。
+            </p>
+        </section>
+
         <footer class="footer">
-            <p>© 2024 Chen Peixin · 感谢您花时间阅读我的简历</p>
+            <p>© 2025 陈培鑫 · 感谢您花时间阅读我的简历</p>
             <p style="margin-top: 4px;">此网页部署于 GitHub Pages</p>
         </footer>
     </div>
 
-    <!-- 打印按钮 -->
     <button class="print-btn" onclick="window.print()" title="打印简历">🖨️</button>
-
 </body>
 </html>
